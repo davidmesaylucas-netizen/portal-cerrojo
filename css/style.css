@@ -1,0 +1,117 @@
+/* Cerrojo - estilos propios. Bootstrap se carga antes que este archivo. */
+:root {
+  --color-fondo: #EEF4EF;      /* gris mineral claro */
+  --color-tinta: #1B3B2F;      /* azul petróleo */
+  --color-acento: #E9B949;     /* amarillo de señal de precaución */
+  --color-acento-claro: #F2CD73;
+  --color-suave: #D5E4D9;
+  --color-blanco: #ffffff;
+  --fuente-titulo: "Bricolage Grotesque", "Trebuchet MS", Arial, sans-serif;
+  --fuente-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+body { background: var(--color-fondo); color: var(--color-tinta); font-family: var(--fuente-texto); font-size: 1.05rem; line-height: 1.65; }
+h1, h2, h3, h4, .navbar-brand { font-family: var(--fuente-titulo); font-weight: 800; line-height: 1.15; }
+p { max-width: 70ch; }
+a { color: var(--color-tinta); }
+:focus-visible { outline: 3px solid var(--color-acento); outline-offset: 3px; }
+.skip-link { position: absolute; left: 1rem; top: .5rem; background: var(--color-acento); color: var(--color-tinta); padding: .5rem 1rem; z-index: 2000; }
+
+/* Encabezado y navegación (Flexbox desde Bootstrap + ajustes propios) */
+.site-header { background: var(--color-tinta); position: sticky; top: 0; z-index: 1000; }
+.site-header .navbar-brand { color: var(--color-blanco); font-size: 1.4rem; }
+.site-header .nav-link { color: #DCEBE0; padding: .6rem 1rem; }
+.site-header .nav-link:hover { color: var(--color-acento); }
+.site-header .nav-link.active { color: var(--color-tinta); background: var(--color-acento); border-radius: .4rem; font-weight: 600; }
+.navbar-toggler { border-color: #6E8F7C; background: #DCEBE0; }
+
+/* Botones */
+.btn-cerrojo, .btn-contorno, .hero .btn-outline-light { line-height: 1.5; }
+.btn-cerrojo { background: var(--color-acento); color: var(--color-tinta); font-weight: 600; border: 2px solid var(--color-acento); padding: .7rem 1.4rem; }
+.btn-cerrojo:hover { background: var(--color-acento-claro); border-color: var(--color-acento-claro); color: var(--color-tinta); }
+.hero .btn-outline-light { border-width: 2px; font-weight: 600; padding: .7rem 1.4rem; }
+.btn-contorno { border: 2px solid var(--color-tinta); color: var(--color-tinta); font-weight: 600; padding: .7rem 1.4rem; }
+.btn-contorno:hover { background: var(--color-tinta); color: var(--color-blanco); }
+
+/* Portada */
+.hero { background: var(--color-tinta); color: var(--color-blanco); padding: 4rem 0; }
+.hero h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); max-width: 18ch; }
+.hero p { color: #DCEBE0; font-size: 1.2rem; }
+.hero img { max-width: 100%; height: auto; }
+
+.bloque { padding: 3.5rem 0; }
+.bloque-claro { background: var(--color-blanco); }
+.titulo-seccion { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.5rem; }
+
+/* Cards propias sobre el componente Card de Bootstrap */
+.card { border: 2px solid var(--color-suave); border-radius: .5rem; height: 100%; }
+.card-title { font-family: var(--fuente-titulo); font-weight: 800; }
+
+/* Aside */
+.aside-nota { background: var(--color-suave); border-left: 6px solid var(--color-acento); padding: 1.25rem 1.5rem; border-radius: .25rem; }
+.aside-nota h3, .aside-nota h2 { font-size: 1.2rem; }
+
+/* Galería con CSS Grid */
+.galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+.galeria figure { margin: 0; background: var(--color-blanco); border: 2px solid var(--color-suave); border-radius: .5rem; overflow: hidden; }
+.galeria img { width: 100%; height: auto; display: block; }
+.galeria figcaption { padding: .75rem 1rem; font-size: .95rem; }
+.video-wrap { position: relative; height: 0; padding-bottom: 56.25%; max-width: 860px; }
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* Tabla */
+.tabla-planes { background: var(--color-blanco); }
+.tabla-planes thead th { background: var(--color-tinta); color: var(--color-blanco); }
+.tabla-planes tfoot td { background: var(--color-suave); font-size: .95rem; }
+.tabla-planes tbody tr:nth-child(even) { background: #F5F9F6; }
+
+/* Formulario */
+.form-control, .form-select { border: 2px solid #8FAA98; }
+.mensaje-error { color: #9b1c1c; font-size: .95rem; min-height: 1.4rem; }
+.mensaje-exito { background: #dff3e4; border: 2px solid #2f7d46; color: #174d29; padding: 1rem 1.25rem; border-radius: .4rem; }
+
+.site-footer { background: var(--color-tinta); color: #DCEBE0; padding: 1.75rem 0; font-size: .95rem; }
+
+/* Responsive: ajustes para tablets y móviles */
+@media (max-width: 991.98px) { .hero { padding: 2.5rem 0; } .bloque { padding: 2.5rem 0; } }
+@media (max-width: 575.98px) { body { font-size: 1rem; } .btn-cerrojo, .btn-contorno { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* ---------- Movimiento suave ---------- */
+html { scroll-behavior: smooth; }
+.btn-cerrojo, .btn-contorno, .hero .btn-outline-light, .site-header .nav-link, .card, .galeria figure, .form-control, .form-select {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.btn-cerrojo:hover, .btn-contorno:hover, .hero .btn-outline-light:hover { transform: translateY(-2px); }
+.btn-cerrojo:active, .btn-contorno:active, .hero .btn-outline-light:active { transform: translateY(0); }
+.site-header .nav-link:hover { background: rgba(255, 255, 255, .09); }
+.card:hover, .galeria figure:hover { transform: translateY(-4px); border-color: var(--color-acento); box-shadow: 0 12px 26px rgba(27, 59, 47, .14); }
+.form-control:focus, .form-select:focus { border-color: var(--color-tinta); box-shadow: 0 0 0 .25rem rgba(233, 185, 73, .45); }
+
+/* Transición entre páginas: la página aparece suavemente y se atenúa al salir (ver script.js) */
+body { animation: aparecer .4s ease both; }
+body.saliendo { opacity: 0; transition: opacity .22s ease; }
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Iconos de las cards ---------- */
+.icono-caja { width: 56px; height: 56px; border-radius: 50%; background: var(--color-acento); color: var(--color-tinta);
+  display: grid; place-items: center; margin-bottom: 1rem; transition: transform .3s ease; }
+.card:hover .icono-caja { transform: scale(1.08) rotate(-4deg); }
+.card-testimonio { border-left: 6px solid var(--color-acento); }
+
+/* ---------- Autodiagnóstico ---------- */
+.diagnostico fieldset { border: 0; padding: 0; margin: 0; }
+.diagnostico legend { font-family: var(--fuente-titulo); font-weight: 800; font-size: 1.15rem; margin-bottom: 1rem; }
+.diagnostico .form-check { padding: .75rem .75rem .75rem 2.4rem; border-radius: .4rem; transition: background-color .25s ease; }
+.diagnostico .form-check:hover { background: var(--color-suave); }
+.diagnostico .form-check-input { border: 2px solid var(--color-tinta); }
+.diagnostico .form-check-input:checked { background-color: var(--color-tinta); border-color: var(--color-tinta); }
+.progress { height: 1.1rem; background: var(--color-suave); border-radius: 999px; }
+.progress-bar { background: var(--color-tinta); transition: width .5s ease; }
+.resultado-caja { background: var(--color-fondo); border: 2px solid var(--color-suave); border-radius: .5rem; padding: 1.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+  body.saliendo { transition: none; }
+  .btn-cerrojo:hover, .btn-contorno:hover, .hero .btn-outline-light:hover, .card:hover, .galeria figure:hover, .card:hover .icono-caja { transform: none; }
+  .progress-bar { transition: none; }
+}
